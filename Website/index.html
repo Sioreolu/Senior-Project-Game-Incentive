@@ -1,118 +1,122 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" >	
+	<head>
+		<meta charset="UTF-8">
+		<title>2048 game</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	
+	<body>
+		<div class="container">
 
-<head>
-  <meta charset="UTF-8">
-  <title>2048 game</title>  
-  <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-  <div class="container">
-  <div class="heading">
-    <h1 class="title">2048</h1>
-    <div class="score-container">0</div>
-  </div>
-  <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
-  
-<!-- The Modal Sign Up -->
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
-<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">High Score Board</button>
- 
-   <div class="game-container">
-    <div class="game-message">
-      <p></p>
-      <div class="lower">
-        <a class="retry-button">Try again</a>
-      </div>
-    </div>
-
-    <div class="grid-container">
-      <div class="grid-row">
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-      </div>
-      <div class="grid-row">
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-      </div>
-      <div class="grid-row">
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-      </div>
-      <div class="grid-row">
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-      </div>
-    </div>
-
-    <div class="tile-container">
-
-    </div>
-  </div>
-
-  <p class="game-explanation">
-    <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
-  </p>
-  <hr>
-  <p>
-    Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/"
-      target="_blank">Threes by Asher Vollmer.</a>
-  </p>
-</div>
-
-<!--WEB JS RESOURCE IF HAMMERJS DOES NOT WORK-->
-<!--<script src='http://cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.6/hammer.min.js'></script>-->
-<!-- -->
-
-<script src="js/hammerjs.js"></script>
-<script  src="js/index.js"></script>
-
-
-
-
-<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content" action="/action_page.php">
-    <div class="container">
-      <h1>Sign Up</h1>
-      <p>Please fill in this form to create an account.</p>
-      <hr>
-	  
-	  <label for="username"><b>Username</b></label>
-	  <input type="text" placeholder="Enter Username" name="usr" required>
-	  
-	  <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-	  
-	  <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-	  
-	  <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
-	  
-      <label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-      </label>
-
-      <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signupbtn">Sign Up</button>
-      </div>
-    </div>
-  </form>
-</div>
-
-<script src="js/signup.js"></script>
-
-</body>
-
+			<!--JS Scripts-->
+			<div>
+				<!--WEB JS RESOURCE IF HAMMERJS DOES NOT WORK-->
+				<!--<script src='http://cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.6/hammer.min.js'></script>-->
+				<script src="js/hammerjs.js"></script>
+				<script src="js/index.js"></script>
+				<script src="js/signup.js"></script>
+			</div>
+			
+			<!-- Top Text -->
+			<div>
+				<div class="heading">
+					<h1 class="title">2048</h1>
+					<div class="score-container">0</div>
+				</div>
+				<p class="game-intro">Join the numbers and get to the 
+					<strong>2048 tile!</strong>
+				</p>
+			</div>
+			
+			<!-- The Buttons -->
+			<div>
+				<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign up</button>
+				<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Log In</button>
+				<button onclick="document.getElementById('id03').style.display='block'" style="width:auto;">High Score Board</button>
+			</div>
+			
+			<!-- The Game -->
+			<div class="game-container">
+				<div class="game-message">
+					<p></p>
+					<div class="lower">
+						<a class="retry-button">Try again</a>
+					</div>
+				</div>
+				<div class="grid-container">
+					<div class="grid-row">
+						<div class="grid-cell"></div>
+						<div class="grid-cell"></div>
+						<div class="grid-cell"></div>
+						<div class="grid-cell"></div>
+					</div>
+					<div class="grid-row">
+						<div class="grid-cell"></div>
+						<div class="grid-cell"></div>
+						<div class="grid-cell"></div>
+						<div class="grid-cell"></div>
+					</div>
+					<div class="grid-row">
+						<div class="grid-cell"></div>
+						<div class="grid-cell"></div>
+						<div class="grid-cell"></div>
+						<div class="grid-cell"></div>
+					</div>
+					<div class="grid-row">
+						<div class="grid-cell"></div>
+						<div class="grid-cell"></div>
+						<div class="grid-cell"></div>
+						<div class="grid-cell"></div>
+					</div>
+				</div>
+				<div class="tile-container"></div>
+			</div>
+			
+			<!-- Bottom Text -->
+			<div>
+				<p class="game-explanation">
+					<strong class="important">How to play:</strong> Use your 
+					<strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they 
+					<strong>merge into one!</strong>
+				</p>
+				<hr>
+				<p>
+					Created by 
+					<a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on 
+					<a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to 
+					<a href="http://asherv.com/threes/"
+					target="_blank">Threes by Asher Vollmer.</a>
+				</p>
+			</div>
+			
+			<!--Sign Up Form-->
+			<div id="id01" class="modal">
+				<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+				<form class="modal-content" action="/action_page.php">
+					<div class="container">
+						<h1>Sign Up</h1>
+						<p>Please fill in this form to create an account.</p>
+						<hr>
+						<label for="username"><b>Username</b></label>
+							<input type="text" placeholder="Enter Username" name="usr" required>
+						<label for="psw"><b>Password</b></label>
+							<input type="password" placeholder="Enter Password" name="psw" required>
+						<label for="psw-repeat"><b>Repeat Password</b></label>
+							<input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+						<label for="email"><b>Email</b></label>
+							<input type="text" placeholder="Enter Email" name="email" required>
+						<label>
+							<input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+						</label>
+						<div class="clearfix">
+							<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+							<button type="submit" class="signupbtn">Sign Up</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		
+		</div>
+	</body>
 </html>
