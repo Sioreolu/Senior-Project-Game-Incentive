@@ -8,21 +8,23 @@ window.onclick = function(event) {
     }
 }
 
-var frmvalidator = new Validator("id01");
-	frmvalidator.EnableOnPageErrorDisplay();
-	frmvalidator.EnableMsgsTogether();
+//Ensure Two Fields are the same -- Case Sensitive
+function BothFieldsIdenticalCaseSensitive() {
+var one = document.FormName.FieldA.value;
+var another = document.FormName.FieldB.value;
+if(one == another) { return true; }
+alert("Oops, both fields must be identical.");
+return false;
+}
 
-	frmvalidator.addValidation("fname","req","Please enter your First Name");
-	frmvalidator.addValidation("fname","maxlen=30","Max length for FirstName is 20");
-	frmvalidator.addValidation("lname","req");
-	frmvalidator.addValidation("lname","maxlen=30");
-	frmvalidator.addValidation("email","req");
-	frmvalidator.addValidation("email","maxlen=255");
-	frmvalidator.addValidation("Email","email");
-	frmvalidator.addValidation("usr","req");
-	frmvalidator.addValidation("usr","maxlen=30");
-	frmvalidator.addValidation("psw","req");
-	frmvalidator.addValidation("psw","maxlen=50");
-	frmvalidator.addValidation("psw-repeat","req");
-	frmvalidator.addValidation("psw-repeat","maxlen=30");
+//Ensure Two Fields are the same -- Case Insensitive
+function BothFieldsIdenticalCaseInsensitive() {
+var one = document.form1.psw.value.toLowerCase();
+var another = document.form1.psw-repeat.value.toLowerCase();
+if(one == another) { return true; }
+alert("Oops, both fields must be identical.");
+return false;
+}
+
+
 
