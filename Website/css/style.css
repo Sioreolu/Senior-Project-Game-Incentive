@@ -340,6 +340,10 @@ hr {
   -moz-transition: 100ms ease-in-out;
   -webkit-transition-property: top, left;
   -moz-transition-property: top, left;
+  opacity: 1;
+}
+.tile blank{
+    opacity: 0    
 }
 .tile.tile-2 {
   background: #eee4da;
@@ -648,7 +652,7 @@ hr {
     width: 106.25px;
     height: 106.25px;
     line-height: 116.25px;
-	opacity: 1;
+	opacity: 0;
   }
   .tile.tile-position-1-1 {
     position: absolute;
@@ -766,6 +770,15 @@ input[type=text], input[type=password] {
 input[type=text]:focus, input[type=password]:focus {
     background-color: #ddd;
     outline: none;
+}
+
+input[type=email] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
 }
 
 /* Set a style for all buttons */

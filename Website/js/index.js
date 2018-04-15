@@ -443,6 +443,8 @@ HTMLActuator.prototype.clearMessage = function () {
 };
 
 
+/*Disable Input variable*/
+var disabled = 0;
 
 function KeyboardInputManager() {
   this.events = {};
@@ -481,6 +483,9 @@ KeyboardInputManager.prototype.listen = function () {
   };
 
   document.addEventListener("keydown", function (event) {
+      if (disabled==1){
+          return;
+      }
     var modifiers = event.altKey || event.ctrlKey || event.metaKey ||
                     event.shiftKey;
     var mapped    = map[event.which];
@@ -542,3 +547,48 @@ Tile.prototype.updatePosition = function (position) {
   this.x = position.x;
   this.y = position.y;
 };
+
+
+/*********************
+
+Forms -- Javascript
+*Code Written by Self
+
+*********************/
+
+//Disable Input
+function disableinput(){
+    console.log("disabled=1");
+    disabled=1;
+    allTiles = document.getElementsByTagName("tile")[0];
+    console.log(allTiles)
+    allTiles.style.opacity = "0";
+};
+
+//Reenable Input
+function enableinput(){
+    console.log("disabled=0");
+    disabled=0;
+};
+
+
+
+/*Ensure Two Fields are the same -- Case Sensitive
+function BothFieldsIdenticalCaseSensitive() {
+var one = document.FormName.FieldA.value;
+var another = document.FormName.FieldB.value;
+if(one == another) { return true; }
+alert("Oops, both fields must be identical.");
+return false;
+}
+
+//Ensure Two Fields are the same -- Case Insensitive
+function BothFieldsIdenticalCaseInsensitive() {
+var one = document.form1.psw.value.toLowerCase();
+var another = document.form1.psw-repeat.value.toLowerCase();
+if(one == another) { return true; }
+alert("Oops, both fields must be identical.");
+return false;
+}
+*/
+

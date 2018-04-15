@@ -4,15 +4,14 @@
 		<meta charset="UTF-8">
 		<title>2048 game</title>
 		<link rel="stylesheet" href="css/style.css">
-		
-		<!--JS Scripts-->
-		<div>
-			<!--WEB JS RESOURCE IF HAMMERJS DOES NOT WORK-->
-			<!--<script src='http://cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.6/hammer.min.js'></script>-->
-			<script src="js/hammerjs.js" type="text/javascript"></script>
-			<script src="js/index.js" type="text/javascript"></script>
-			<script src="js/signup.js" type="text/javascript"></script>
-		</div>
+    <!--JS Scripts-->
+    <div>
+        <!--WEB JS RESOURCE IF HAMMERJS DOES NOT WORK-->
+        <!--<script src='http://cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.6/hammer.min.js'></script>-->
+        <script src="js/hammerjs.js" type="text/javascript"></script>
+        <script src="js/index.js" type="text/javascript"></script>
+        <script src="js/gen_validatorv4.js" type="text/javascript"></script>
+    </div>
 	</head>
 	
 	<body>
@@ -30,7 +29,7 @@
 			
 			<!-- The Buttons -->
 			<div>
-				<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign up</button>
+				<button id="BtnSignup" onclick="document.getElementById('id01').style.display='block'; disableinput()" style="width:auto;">Sign up</button>
 				<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Log In</button>
 				<button onclick="document.getElementById('id03').style.display='block'" style="width:auto;">High Score Board</button>
 			</div>
@@ -91,7 +90,7 @@
 			
 			<!--Sign Up Form-->
 			<div id="id01" class="modal">
-				<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+				<span onclick="document.getElementById('id01').style.display='none'; enableinput()" class="close" title="Close Modal">&times;</span>
 				<form name ="form1" id="form1" class="modal-content" action="">
 					<div class="container">
 						<h1>Sign Up</h1>
@@ -114,14 +113,14 @@
 							<input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
 						</label>
 						<div class="clearfix">
-							<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+							<button type="button" onclick="document.getElementById('id01').style.display='none'; enableinput()" class="cancelbtn">Cancel</button>
 							
 							<button type="submit" class="signupbtn" onclick="return BothFieldsIdenticalCaseSensitive()" value="Click Me">Sign Up</button>
 						</div>
 					</div>
 				</form>
 			</div>
-		
 		</div>
 	</body>
+
 </html>
