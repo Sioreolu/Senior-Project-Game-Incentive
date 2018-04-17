@@ -1,4 +1,4 @@
-use Game;
+use reynaj;
 
 insert into users(userName, pass, email, firstName, lastName) VALUES
-('testU', 'testP', 'test@test.com', 'testName', 'testName2');
+('usr', 'pass', 'email', 'fname', 'lname');

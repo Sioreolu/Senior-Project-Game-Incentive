@@ -560,9 +560,7 @@ Forms -- Javascript
 function disableinput(){
     console.log("disabled=1");
     disabled=1;
-    allTiles = document.getElementsByTagName("tile")[0];
-    console.log(allTiles)
-    allTiles.style.opacity = "0";
+    var gestures = [];
 };
 
 //Reenable Input
@@ -571,6 +569,15 @@ function enableinput(){
     disabled=0;
 };
 
+//Validate Registration
+var frmvalidator  = new Validator("register");
+frmvalidator.EnableOnPageErrorDisplay();
+frmvalidator.EnableMsgsTogether();
+frmvalidator.addValidation("name","req","Please provide your name");
+frmvalidator.addValidation("email","req","Please provide your email address");
+frmvalidator.addValidation("email","email","Please provide a valid email address");
+frmvalidator.addValidation("username","req","Please provide a username");
+frmvalidator.addValidation("password","req","Please provide a password");
 
 
 /*Ensure Two Fields are the same -- Case Sensitive
