@@ -1,4 +1,4 @@
-html, body {
+html, head, body {
   margin: 0;
   padding: 0;
   background: #faf8ef;
@@ -7,8 +7,11 @@ html, body {
   font-size: 18px;
 }
 
+head {
+    margin: 0px 0;
+}
 body {
-  margin: 80px 0;
+  margin: 2px 0;
 }
 
 .heading:after {
@@ -785,8 +788,8 @@ input[type=email] {
 button {
     background-color: #4CAF50;
     color: white;
-    padding: 14px 50px;
-    margin: 8px 0;
+    padding: 3px 50px;
+    margin: 0px 0;
     border: none;
     cursor: pointer;
     width: 100%;
