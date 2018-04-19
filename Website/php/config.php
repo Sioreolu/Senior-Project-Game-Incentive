@@ -1,16 +1,19 @@
 <?PHP
-echo "Test";
+function dbConnect(){
+	$dbServer = "localhost";
+	$dbUsername = "reynaj";
+	$dbPassword = "dB=pwd946";
+	$dbSchema = "reynaj";
+	
+	// Create connection
+	$conn = new mysqli($$dbServer, $dbUsername, $dbPassword, $dbSchema);
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	} 
+	else {
+		echo("Connection Successful ");
+	}
 
-var $servername = "https://cis.stvincent.edu/pma";
-var $username = "reynaj";
-var $password = "Db=pwd768";
-var $dbname = "reynaj";
-
-$con=mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
-
+}
 ?>

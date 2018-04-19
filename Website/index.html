@@ -88,7 +88,7 @@
 			<!--Sign Up Form-->
 			<div id="id01" class="modal">
 				<span onclick="document.getElementById('id01').style.display='none'; enableinput()" class="close" title="Close Modal">&times;</span>
-				<form name ="form1" id="form1" class="modal-content" action="../php/register.php" method="post">
+				<form name ="form1" id="form1" class="modal-content" action="php/register.php" method="post">
 					<div class="container">
 						<h1>Sign Up</h1>
 						<p>Please fill in this form to create an account.</p>
@@ -117,63 +117,12 @@
 					</div>
                 </form>
             </div>
-            <div id="id01" class="modal">
-				<span 
-                      onclick="document.getElementById('id01').style.display='none'; enableinput()" class="close" title="Close Modal">&times;
-                </span>
-				<form 
-                    name ="form1" id="form1" class="modal-content" action="../php/register.php" method="post">
-				    <div class="container">
-				        <h1>Sign Up</h1>
-						<p>Please fill in this form to create an account.</p>
-						<hr>
-				            <label for="fname">
-                                <b>First Name</b>
-                            </label>
-				                <input type="text" placeholder="First Name:" name="fname" maxlength="30" required>
-                        
-				            <label for="lname">
-                                <b>Last Name</b>
-                            </label>
-							     <input type="text" placeholder="Last Name:" name="lname" maxlength="30" required>
-                        
-                            <label for="email">
-                                <b>Email</b>
-                            </label>
-							     <input type="email" placeholder="Enter Email" name="email" maxlength="255" required>
-                        
-                            <label for="usr">
-                                <b>Username</b>
-                            </label>
-							     <input type="text" placeholder="Username:" name="usr" maxlength="30" required>
-                        
-                            <label for="psw">
-                                <b>Password</b>
-                            </label>
-							     <input type="password" placeholder="Password:" name="psw" maxlength="50" required>
-                        
-                            <label for="psw-repeat">
-                                <b>Repeat Password</b>
-                            </label>
-							     <input type="password" placeholder="Repeat Password:" name="psw-repeat" maxlength="50" required>
-
-                            <label>
-							     <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                            </label>
-						<div class="clearfix">
-							<button type="button" onclick="document.getElementById('id01').style.display='none'; enableinput()" class="cancelbtn">Cancel</button>
-							
-							<button type="submit" class="signupbtn" onclick="return BothFieldsIdenticalCaseSensitive()" value="Click Me">Sign Up</button>s
-						</div>
-					</div>
-				</form>
-            </div>
                 <div id="id02" class="modal">
 				<span 
                       onclick="document.getElementById('id02').style.display='none'; enableinput()" class="close" title="Close Modal">&times;
                 </span>
 				<form 
-                    name ="form2" id="form2" class="modal-content" action="../php/login.php" method="post">
+                    name ="form2" id="form2" class="modal-content" action="" method="post">
 				    <div class="container">
 				        <h1>Log in</h1>
 						<hr>

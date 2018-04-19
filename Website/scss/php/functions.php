@@ -1,11 +1,47 @@
 <?PHP
 
-//require_once("class.phpmailer.php");
-//require_once("formvalidator.php");
+require_once("class.phpmailer.php");
+require_once("formvalidator.php");
+require_once("config.php");
+
+class gameSite
+{
+    var $admin_email;
+    var $DB_host
+    
+    var $user;
+    var $pass;
+    var $database;
+    var $tablename;
+    
+    var $connection
+    var $error_msg;
+    
     /*------------
     --Operations--
     ------------*/
-/*
+    function Connect($host,$dbUser,$dbPass,$db,$tble)
+    {
+        $this->connection = mysql_connect($this->$host,$this->dbUser,$this->dbPass);
+        
+        if(!$this->connection)
+        {
+            $this->dbError("Database Login failed! Please make sure that the DB login credentials provided are correct");
+            return false;
+        }
+        if(!mysql_select_db($this->database, $this->connection))
+        {
+            $this->dbError('Failed to select database: '.$this->database.' Please make sure that the database name provided is correct');
+            return false;
+        }
+        if(!mysql_query("SET NAMES 'UTF8'",$this->connection))
+        {
+            $this->dbError('Error setting utf8 encoding');
+            return false;
+        }
+        return true;
+    }
+    
     function Register()
     {
         if(!$this->ValidateRegistration())
@@ -46,11 +82,10 @@
     }
         
 
-	/*----------
-	----Form----
-	-Validation-
-	----------*/
-/*
+/*----------
+----Form----
+-Validation-
+----------*/
     function ValidateRegistration()
     {
         $validator = new FormValidator();
@@ -75,6 +110,11 @@
         return true;
     }
     
+/*-----------
+--Background-
+--Functions--
+-----------*/
+    //Sanitize Text
     function Sanitize($str,$remove_nl=true)
     {
         $str = $this->StripSlashes($str);
@@ -119,13 +159,13 @@
         }
         return true;
     }
- */   
+    
     //Checks if fields are unique
-	//Keep
     function IsFieldUnique($formvars,$fieldname)
     {
-        $qry = "select ' . $fieldname . ' from' Users where $fieldname='".$field_val."'";
-        $result = mysql_query($qry);   
+        $field_val = $this->SanitizeForSQL($formvars[$fieldname]);
+        $qry = "select ' . $fieldname . ' from' $this->tablename where $fieldname='".$field_val."'";
+        $result = mysql_query($qry,$this->connection);   
         if($result && mysql_num_rows($result) > 0)
         {
             return false;
@@ -134,7 +174,7 @@
     }
     
     //Inserts into Database
- /*   function InsertIntoDB(&$formvars)
+    function InsertIntoDB(&$formvars)
     {   
         $insert_query = 'insert into '.$this->tablename.'(fname, lname, email, user, pass, ) values (
                 "' . $this->SanitizeForSQL($formvars['fname']) . '",
@@ -150,4 +190,13 @@
         }        
         return true;
     }
-*/
+    
+    function Error($err)
+    {
+        $this->error_message .= $err."\r\n";
+    }
+    function dbError($err)
+    {
+        $this->Error($err."\r\n mysqlerror:".mysql_error());
+    }
+}
