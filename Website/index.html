@@ -16,7 +16,7 @@
 		<div class="container">
             
 			<div> <!-- The Buttons -->
-				<button id="BtnSignup" onclick="document.getElementById('id01').style.display='block'; disableinput()" style="width:auto;">Sign up</button>
+				<button id="BtnSignup" onclick="document.getElementById('frmSignUp').style.display='block'; disableinput()" style="width:auto;">Sign up</button>
 				<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Log In</button>
 				<button onclick="document.getElementById('id03').style.display='block'" style="width:auto;">High Score Board</button>
 			</div>
@@ -86,8 +86,8 @@
 			</div>
 			
 			<!--Sign Up Form-->
-			<div id="id01" class="modal">
-				<span onclick="document.getElementById('id01').style.display='none'; enableinput()" class="close" title="Close Modal">&times;</span>
+			<div id="frmSignUp" class="modal">
+				<span onclick="document.getElementById('frmSignUp').style.display='none'; enableinput()" class="close" title="Close Modal">&times;</span>
 				<form name ="form1" id="form1" class="modal-content" action="php/register.php" method="post">
 					<div class="container">
 						<h1>Sign Up</h1>
@@ -110,7 +110,7 @@
 							<input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
 						</label>
 						<div class="clearfix">
-							<button type="button" onclick="document.getElementById('id01').style.display='none'; enableinput()" class="cancelbtn">Cancel</button>
+							<button type="button" onclick="document.getElementById('frmSignUp').style.display='none'; enableinput()" class="cancelbtn">Cancel</button>
 							
 							<button type="submit" class="signupbtn" onclick="return BothFieldsIdenticalCaseSensitive()" value="Click Me">Sign Up</button>
 						</div>
@@ -136,7 +136,7 @@
                             </label>
 							     <input type="password" placeholder="Password:" name="psw" maxlength="50" required>
 						<div class="clearfix">
-							<button type="button" onclick="document.getElementById('id01').style.display='none'; enableinput()" class="cancelbtn">Cancel</button>
+							<button type="button" onclick="document.getElementById('frmSignUp').style.display='none'; enableinput()" class="cancelbtn">Cancel</button>
 							
 							<button type="submit" class="signupbtn" onclick="return BothFieldsIdenticalCaseSensitive()" value="Click Me">Sign Up</button>s
 						</div>
