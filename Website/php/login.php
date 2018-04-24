@@ -1,6 +1,6 @@
 <?php
 
-
+header("Location:login.php?location=" . urlencode($_SERVER['REQUEST_URI']));
 require_once("config.php");
 
 /*************
@@ -18,6 +18,9 @@ if ($exists == "1"){
 	$exists = CheckExists($sqlConn, $qry);
 	if ($exists == "1"){
 		print_R("Log in Successful");
+		
+		$_SESSION['username'] = $_POST['usr']; // store username
+		$_SESSION['password'] = md5($_POST['psw']); // store password
 	}
 	else{
 		print_R("Password does not match");
@@ -26,7 +29,10 @@ if ($exists == "1"){
 else{
 	print_R("Account does not exists");
 };
-/***************;***
+
+echo $_SESSION['username'];
+echo $_SESSION['password'];
+/******************
 Return to Main Page
 *******************/
 //header('Location: ../index.html');
