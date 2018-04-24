@@ -561,20 +561,21 @@ function disableinput(){
     console.log("disabled=1");
     disabled=1;
     var i;
-    /*for (i=0; i<16; i++){
+	//IMPORTANT: DISABLE TOUCH/SWIPE ABILITY
+    for (i=0; i<16; i++){
         var tileop = document.getElementsByClassName("tile")[i];
         tileop.style.opacity=0;
-    }*/
+    }
 };
 
 //Reenable Input
 function enableinput(){
     console.log("disabled=0");
     disabled=0;
-    /*for (i=0; i<16; i++){
+    for (i=0; i<16; i++){
         var tileop = document.getElementsByClassName("tile")[i];
         tileop.style.opacity=1;
-    }*/
+    }
 };
 
 //Validate Registration
