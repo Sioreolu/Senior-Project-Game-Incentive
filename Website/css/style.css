@@ -152,7 +152,7 @@ hr {
   }
 }
 .game-container {
-  margin-top: 40px;
+  margin-top: 10px;
   position: relative;
   padding: 15px;
   cursor: default;
@@ -784,16 +784,51 @@ input[type=email] {
     background: #f1f1f1;
 }
 
-/* Set a style for all buttons */
 button {
-    background-color: #4CAF50;
+	background-color: #4CAF50;
     color: white;
-    padding: 3px 50px;
-    margin: 0px 0;
     border: none;
+	border-radius: 12px;
     cursor: pointer;
-    width: 100%;
+    width: auto;
     opacity: 0.9;
+}
+.SignUpbutton {
+	background-color: #4CAF50;
+    color: white;
+    border: none;
+	border-radius: 12px;
+    cursor: pointer;
+    width: auto;
+    opacity: 0.9;
+    padding: 5px 50px;
+	margin-left: 212px;
+    width: auto;
+    opacity: 0.9;
+}
+.LogInbutton {
+	background-color: #4CAF50;
+    color: white;
+    border: none;
+	border-radius: 12px;
+    cursor: pointer;
+    width: auto;
+    opacity: 0.9;
+    padding: 5px 50px;
+    margin: 0px 0px;
+    width: auto;
+}
+.HighScorebutton {
+	background-color: #4CAF50;
+    color: white;
+    border: none;
+	border-radius: 12px;
+    cursor: pointer;
+    width: auto;
+    opacity: 0.9;
+    padding: 10px 197px;
+    margin: 0px 0px;
+    width: auto;
 }
 
 
@@ -807,8 +842,13 @@ button:hover {
     background-color: #f44336;
 }
 
+.registerbtn{
+	padding: 14px 20px;
+    background-color: #33C7FF;
+}
+
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
+.cancelbtn, .registerbtn {
   float: left;
   width: 50%;
 }

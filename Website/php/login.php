@@ -21,6 +21,7 @@ if ($exists == "1"){
 		
 		$_SESSION['username'] = $_POST['usr']; // store username
 		$_SESSION['password'] = md5($_POST['psw']); // store password
+		$_SESSION['logged']="1"; //Session log is set to true
 	}
 	else{
 		print_R("Password does not match");
@@ -29,9 +30,6 @@ if ($exists == "1"){
 else{
 	print_R("Account does not exists");
 };
-
-echo $_SESSION['username'];
-echo $_SESSION['password'];
 /******************
 Return to Main Page
 *******************/

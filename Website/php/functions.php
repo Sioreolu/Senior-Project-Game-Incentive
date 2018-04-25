@@ -1,17 +1,14 @@
 <?PHP
 
-//require_once("class.phpmailer.php");
-//require_once("formvalidator.php");
-    /*------------
+require_once("class.phpmailer.php");
+require_once("formvalidator.php");
+
+---------
     --Operations--
-    ------------*/
-/*
-    function Register()
+    ------------*/   
+    function Register($Add in)
     {
-        if(!$this->ValidateRegistration())
-        {
-            return false;
-        }
+
         $formvars = array();
         $formvars['fname'] = $this->Sanitize($_POST['fname']);
         $formvars['lname'] = $this->Sanitize($_POST['lname']);
@@ -46,11 +43,10 @@
     }
         
 
-	/*----------
-	----Form----
-	-Validation-
-	----------*/
-/*
+/*----------
+----Form----
+-Validation-
+----------*/
     function ValidateRegistration()
     {
         $validator = new FormValidator();
@@ -75,6 +71,11 @@
         return true;
     }
     
+/*-----------
+--Background-
+--Functions--
+-----------*/
+    //Sanitize Text
     function Sanitize($str,$remove_nl=true)
     {
         $str = $this->StripSlashes($str);
@@ -119,13 +120,13 @@
         }
         return true;
     }
- */   
+    
     //Checks if fields are unique
-	//Keep
-    function IsFieldUnique($formvars,$fieldname)
+    function IsFieldUnique($vars,$fieldname)
     {
-        $qry = "select ' . $fieldname . ' from' Users where $fieldname='".$field_val."'";
-        $result = mysql_query($qry);   
+        $field_val = $this->SanitizeForSQL($formvars[$fieldname]);
+        $qry = "select ' . $fieldname . ' from' $this->tablename where $fieldname='".$field_val."'";
+        $result = mysql_query($qry,$this->connection);   
         if($result && mysql_num_rows($result) > 0)
         {
             return false;
@@ -134,7 +135,7 @@
     }
     
     //Inserts into Database
- /*   function InsertIntoDB(&$formvars)
+    function InsertIntoDB(&$formvars)
     {   
         $insert_query = 'insert into '.$this->tablename.'(fname, lname, email, user, pass, ) values (
                 "' . $this->SanitizeForSQL($formvars['fname']) . '",
@@ -150,4 +151,13 @@
         }        
         return true;
     }
-*/
+    
+    function Error($err)
+    {
+        $this->error_message .= $err."\r\n";
+    }
+    function dbError($err)
+    {
+        $this->Error($err."\r\n mysqlerror:".mysql_error());
+    }
+}

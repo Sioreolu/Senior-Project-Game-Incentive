@@ -1,4 +1,7 @@
 ﻿<!DOCTYPE html>
+<?php
+session_start();
+?>
 <html lang="en" >	
 	<head>
 		<meta charset="UTF-8">
@@ -11,9 +14,23 @@
 	</head>
 	<body>	
 		<div class="container">
-				<button class="SignUpbutton" onclick="document.getElementById('divSignup').style.display='block'; disableinput()" style="width:auto;">Sign up</button>
-				<button class="LogInbutton" onclick="document.getElementById('divLogin').style.display='block'; disableinput()" style="width:auto;">Log In</button>		
-			<div> <!-- Top Text -->
+		  <?php 
+			  if($_SESSION['logged']=="1")
+				{ 
+				  echo $_SESSION["username"];
+				  echo '<a href="logout.php"><span>Logout</span></a>';
+				}
+			  else
+				{
+					echo'
+					<button class="SignUpbutton" onclick="document.getElementById(\'divSignup\').style.display=\'block\'; disableinput()" style="width:auto;">Sign up</button>
+					<button class="LogInbutton" onclick="document.getElementById(\'divLogin\').style.display=\'block\'; disableinput()" style="width:auto;">Log In</button>		
+					';
+				};
+		  ?>
+		  
+			<!-- Top Text -->
+			<div>
 				<div class="heading">
 					<h1 class="title">2048</h1>
 					<div class="score-container">0</div>
