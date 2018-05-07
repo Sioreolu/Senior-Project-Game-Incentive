@@ -1,6 +1,9 @@
 ﻿<!DOCTYPE html>
 <?php
 session_start();
+if (!isset($_SESSION['logged'])){
+  $_SESSION['logged'] = false;
+}
 ?>
 <html lang="en" >	
 	<head>
@@ -15,10 +18,14 @@ session_start();
 	<body>	
 		<div class="container">
 		  <?php 
-			  if($_SESSION['logged']=="1")
+			  if($_SESSION['logged']==true)
 				{ 
+				  echo "Username:";
 				  echo $_SESSION["username"];
-				  echo '<a href="logout.php"><span>Logout</span></a>';
+				  echo "      Top Score:";
+				  echo $_SESSION['pscore'];
+				  echo "      ";
+				  echo '<a href="php/logout.php"><span>Logout</span></a>';
 				}
 			  else
 				{
@@ -28,17 +35,16 @@ session_start();
 					';
 				};
 		  ?>
-		  
 			<!-- Top Text -->
 			<div>
 				<div class="heading">
 					<h1 class="title">2048</h1>
-					<div class="score-container">0</div>
+					<div  class="score-container" name="scorecon">0</div>
 				</div>
 				<p class="game-intro">Join the numbers and get to the 
 					<strong>2048 tile!</strong>
 				</p>
-				<button class="HighScorebutton" onclick="document.getElementById('divHS').style.display='block'" style="width:auto;">High Score Board</button>
+				<button class="HighScorebutton" onclick="document.getElementById('divHS').style.display='block'; disableinput()" style="width:auto;">High Score Board</button>
 			</div>
 			
 			<!-- The Game -->
@@ -46,7 +52,16 @@ session_start();
 				<div class="game-message">
 					<p></p>
 					<div class="lower">
-						<a class="retry-button">Try again</a>
+						<?php
+							if($_SESSION['logged']==true)
+							{
+								echo'<a href="php/updatescore.php" class="retry-button"><span>Try again!</span></a>';
+							}
+							else
+							{
+								echo'<a href="php/updatescore.php" class="retry-button"><span>Try again!</span></a>';
+							}
+						?>
 					</div>
 				</div>
 				<div class="grid-container">
@@ -107,9 +122,6 @@ session_start();
 							<input type="password" placeholder="Password:" name="psw" maxlength="50" required>
 						<label for="psw-repeat"><b>Repeat Password</b></label>
 							<input type="password" placeholder="Repeat Password:" name="psw-repeat" maxlength="50" required>
-						<label>
-							<input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-						</label>
 						<div class="clearfix">
 							<button type="button" onclick="document.getElementById('divSignup').style.display='none'; enableinput()" class="cancelbtn">Cancel</button>
 							<button type="submit" class="registerbtn" onclick="return BothFieldsIdenticalCaseSensitive()" value="Click Me">Sign Up</button>
@@ -145,26 +157,7 @@ session_start();
 			<!--High Score Container-->
 			<div id="divHS" class="modal">
 				<span onclick="document.getElementById('divHS').style.display='none'; enableinput()" class="close" title="Close Modal">&times;</span>
-				<form name ="frmHS" id="frm03" class="modal-content" action="" method="post">
-				    <div class="container">
-				        <h1>Log in</h1>
-						<hr>
-                            <label for="usr">
-                                <b>Username</b>
-                            </label>
-							     <input type="text" placeholder="Username:" name="usr" maxlength="30" required>
-                        
-                            <label for="psw">
-                                <b>Password</b>
-                            </label>
-							     <input type="password" placeholder="Password:" name="psw" maxlength="50" required>
-							<div class="clearfix">
-							<button type="button" onclick="document.getElementById('frmSignUp').style.display='none'; enableinput()" class="cancelbtn">Cancel</button>
-							
-							<button type="submit" class="signupbtn" onclick="return BothFieldsIdenticalCaseSensitive()" value="Click Me">Sign Up</button>
-							</div>
-					</div>
-				</form>
+				
             </div>
         </div>
 	</body>

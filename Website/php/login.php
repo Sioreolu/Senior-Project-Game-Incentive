@@ -1,6 +1,5 @@
 <?php
-
-header("Location:login.php?location=" . urlencode($_SERVER['REQUEST_URI']));
+session_start();
 require_once("config.php");
 
 /*************
@@ -17,11 +16,16 @@ if ($exists == "1"){
 	$qry = 'SELECT userName, pass FROM Users WHERE userName="'.$user.'" AND pass="'.$pass.'";';
 	$exists = CheckExists($sqlConn, $qry);
 	if ($exists == "1"){
-		print_R("Log in Successful");
-		
 		$_SESSION['username'] = $_POST['usr']; // store username
 		$_SESSION['password'] = md5($_POST['psw']); // store password
-		$_SESSION['logged']="1"; //Session log is set to true
+		$_SESSION['logged']=true; //Session log is set to true
+		$scoreqry = 'SELECT score FROM Scores INNER JOIN Users ON Scores.userID = Users.userID WHERE userName="'.$user.'" ORDER BY score desc LIMIT 1;';
+		$result = mysqli_query($sqlConn, $scoreqry);
+		if(mysqli_num_rows($result) > 0) 
+			{
+				$row = mysqli_fetch_assoc($result);
+				$_SESSION['pscore'] = $row['score'];
+			};
 	}
 	else{
 		print_R("Password does not match");
@@ -33,6 +37,6 @@ else{
 /******************
 Return to Main Page
 *******************/
-//header('Location: ../index.html');
-//exit;
+header('Location: ../index.php');
+exit;
 ?>

@@ -426,12 +426,14 @@ HTMLActuator.prototype.updateScore = function (score) {
 
     this.scoreContainer.appendChild(addition);
   }
+  
+  document.cookie = score;
 };
 
 HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
   var message = won ? "You win!" : "Game over!"
-
+	
   // if (ga) ga("send", "event", "game", "end", type, this.score);
 
   this.messageContainer.classList.add(type);

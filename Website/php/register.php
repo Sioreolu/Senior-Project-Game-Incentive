@@ -43,6 +43,6 @@ mysqli_query($sqlConn, $qry);
 /******************
 Return to Main Page
 *******************/
-header('Location: ../index.html');
+header('Location: ../index.php');
 exit;
 ?>
